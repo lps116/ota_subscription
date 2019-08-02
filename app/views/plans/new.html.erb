@@ -1,0 +1,7 @@
+<h1>Create New Plan</h1>
+
+<%= simple_form_for([ @user, @plan ]) do |form| %>
+  <%= form.input :name, as: :text %>
+  <%= form.input :duration, as: :integer %>
+  <%= form.button :submit %>
+<% end %>
