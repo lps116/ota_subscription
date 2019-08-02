@@ -1,2 +1,4 @@
 <h1><%= @plan.name %></h1>
 <h2><%= @plan.duration %></h2>
+<p>Amount: <%= humanized_money_with_symbol(@plan.price) %></p>
+
