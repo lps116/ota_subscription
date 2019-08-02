@@ -3,5 +3,6 @@
 <%= simple_form_for([ @user, @plan ]) do |form| %>
   <%= form.input :name, as: :text %>
   <%= form.input :duration, as: :integer %>
+  <%= form.input :price_cents, as: :float %>
   <%= form.button :submit %>
 <% end %>

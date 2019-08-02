@@ -29,7 +29,7 @@ class PlansController < ApplicationController
   private
 
   def strong_params
-    params.require(:plan).permit(:name, :duration)
+    params.require(:plan).permit(:name, :duration, :price_cents)
   end
 
 end
