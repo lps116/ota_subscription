@@ -2,3 +2,7 @@
 <h2><%= @plan.duration %></h2>
 <p>Amount: <%= humanized_money_with_symbol(@plan.price) %></p>
 
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'plan_id', @plan.id %>
+  <%= submit_tag 'Subscribe', class: 'btn btn-primary' %>
+<% end %>
