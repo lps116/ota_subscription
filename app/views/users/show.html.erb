@@ -5,3 +5,20 @@
   <% end %>
 </ul>
 <%= link_to "Create Plan", new_user_plan_path(@user)%>
+
+<h1>My trades</h1>
+<ul>
+  <% @trades.each do |trade|  %>
+    <% if current_user.id == @user.id || current_user.orders.where(seller: @user.id) %>
+      <li><%= trade.instrument %> <%= trade.open ? "open" : "closed"  %></li>
+    <% else %>
+    <% unless trade.open %>
+      <li><%= trade.instrument %> closed </li>
+    <% end %>
+    <% end %>
+  <% end %>
+</ul>
+
+<!--
+if current_user.id == @user.id || current_user.orders.seller == @user.id
+ -->
