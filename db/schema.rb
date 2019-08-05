@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_05_090022) do
+ActiveRecord::Schema.define(version: 2019_08_05_111924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_08_05_090022) do
     t.bigint "plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "seller"
     t.index ["plan_id"], name: "index_orders_on_plan_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -35,6 +36,18 @@ ActiveRecord::Schema.define(version: 2019_08_05_090022) do
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_plans_on_user_id"
+  end
+
+  create_table "trades", force: :cascade do |t|
+    t.string "direction"
+    t.string "instrument"
+    t.integer "exit"
+    t.integer "entry"
+    t.boolean "open", default: true
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_trades_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,4 +74,5 @@ ActiveRecord::Schema.define(version: 2019_08_05_090022) do
   add_foreign_key "orders", "plans"
   add_foreign_key "orders", "users"
   add_foreign_key "plans", "users"
+  add_foreign_key "trades", "users"
 end

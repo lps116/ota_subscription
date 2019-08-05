@@ -19,6 +19,7 @@ gem 'webpacker'
 #gems added
 gem 'money-rails'
 gem 'stripe'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
