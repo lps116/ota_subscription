@@ -9,7 +9,7 @@
 <h1>My trades</h1>
 <ul>
   <% @trades.each do |trade|  %>
-    <% if current_user.id == @user.id || current_user.orders.where(seller: @user.id) %>
+    <% if current_user.id == @user.id || current_user.orders.where(seller: @user.id).present? %>
       <li><%= trade.instrument %> <%= trade.open ? "open" : "closed"  %></li>
     <% else %>
     <% unless trade.open %>
