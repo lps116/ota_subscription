@@ -1,0 +1,7 @@
+<h1>All of the users you can subscribe to</h1>
+
+<ul>
+  <% @users.each do |user|%>
+    <li><%= link_to "#{user.first_name} #{user.last_name}", user_path(user)%></li>
+  <% end %>
+</ul>
