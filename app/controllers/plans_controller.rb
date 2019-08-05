@@ -16,7 +16,6 @@ class PlansController < ApplicationController
   end
 
   def destroy
-    puts("REACHING DESTROY METHOD")
     @plan = Plan.find(params[:id])
     @plan.destroy
     redirect_to user_path(params[:user_id])
